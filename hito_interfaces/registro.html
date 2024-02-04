@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel = "stylesheet" href = "style_registro/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <section id="registro" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2 class="text-center mb-4">Registrarse</h2>
+                    <form id="registroForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo Electrónico:</label>
+                            <input type="email" class="form-control" id="correo" name="correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nuevoUsuario">Nombre de Usuario:</label>
+                            <input type="text" class="form-control" id="nuevoUsuario" name="nuevoUsuario" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nuevaContraseña">Contraseña:</label>
+                            <input type="password" class="form-control" id="nuevaContraseña" name="nuevaContraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </form>
+                    <p class="mt-3 text-center">¿Ya tienes una cuenta? <a href="index.html">Iniciar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agrega los enlaces a Bootstrap (JS) y Popper.js aquí -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const registroForm = document.getElementById('registroForm');
+
+        registroForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Aquí puedes agregar la lógica para procesar el formulario de registro
+            const nombre = registroForm.elements['nombre'].value;
+            const correo = registroForm.elements['correo'].value;
+            const nuevoUsuario = registroForm.elements['nuevoUsuario'].value;
+            const nuevaContraseña = registroForm.elements['nuevaContraseña'].value;
+
+            // Ejemplo: muestra la información ingresada en el formulario
+            alert(`Registro exitoso:\nNombre: ${nombre}\nCorreo: ${correo}\nUsuario: ${nuevoUsuario}`);
+
+            // Muestra un mensaje de éxito en la página
+            const successMessage = document.createElement('div');
+            successMessage.classList.add('alert', 'alert-success', 'mt-3');
+            successMessage.textContent = '¡Registro exitoso! Redirigiendo a la página de inicio de sesión...';
+
+            // Agrega el mensaje después del formulario
+            registroForm.parentNode.insertBefore(successMessage, registroForm.nextSibling);
+
+            // Redirige al usuario después de un breve retraso (ejemplo de 2 segundos)
+            setTimeout(function () {
+                window.location.href = 'index.html'; // Reemplaza con tu página de inicio de sesión
+            }, 2000);
+        });
+    });
+</script>
+
+</body>
+</html>
